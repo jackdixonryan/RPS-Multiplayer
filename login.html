@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Register</h1>
+    <form>
+        <input type="text" placeholder="username" id="username">
+        <input type="password" placeholder="password" id="password">
+        <input type="text" placeholder="Age" id="age">
+        <textarea placeholder="How did you hear about this service?" id="reason"></textarea>
+        <button id="submit" type="button">Register User</button>
+    </form>
+
+    <h1>Login</h1>
+    <input type="text" placeholder="username" id="username-login">
+    <input type="password" placeholder="password" id="password-login">
+    <button id="submit-login" type="button">Log in</button>
+
+    <div id="alert-area"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+<script>
+
+
+  // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAYzoIRl5Tr3t23pkaQYWe2KVKYO0FE4ck",
+        authDomain: "fir-prologue.firebaseapp.com",
+        databaseURL: "https://fir-prologue.firebaseio.com",
+        projectId: "fir-prologue",
+        storageBucket: "fir-prologue.appspot.com",
+        messagingSenderId: "432553448888"
+    };
+
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+    var userName = "";
+    var password = "";
+    var age = ""; 
+    var reason = "";
+
+    var userId;
+
+    $("#submit").click(function() {
+        userName = $("#username").val();
+        password = $("#password").val();
+        age = $("#age").val();
+        reason = $("#reason").val();
+
+        console.log(userName);
+        console.log(password);
+        $("#username").val("");
+        $("#password").val("");
+        $("#age").val("");
+        $("#reason").val("");
+
+        database.ref().push(
+            {
+            password: password,
+            username: userName,
+            age: age,
+            reason: reason
+           }   
+        );
+    });
+
+    var usernameLogin;
+    var passwordLogin;
+
+    $("#submit-login").click(function() {
+
+        var alert = $("<p>");
+
+        usernameLogin = $("#username-login").val();
+        passwordLogin = $("#password-login").val();
+        console.log(usernameLogin, passwordLogin);
+
+        database.ref().once("value", function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                console.log(childKey, childData);
+                if (usernameLogin === childData.username && passwordLogin === childData.password) {
+                    localStorage.setItem("user", usernameLogin);
+                    localStorage.setItem("pass", passwordLogin);
+                    $(location).attr('href', 'index.html');
+                } else {
+                    $(alert).text("Invalid username or password.")
+                    $(alert).attr("class", "text-danger");
+                }
+                $("#alert-area").html(alert);
+
+            });
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+    </head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">RPS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">The Game. <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Rocks.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Papers.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Scissors.</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+    <div id="username">
+        <h4>Play now: </h4>
+        <input type="text" placeholder="username" id="user">
+        <button class="btn btn-primary" id="go">Go</button>
+    </div>
+
+    <div class="container">
+        <span><p id="user-one"></p><p id="user-two"></p></span>
+    </div>
+
+    <div class="container">
+        <div class="card" id="select">
+            <h4 class="card-title">Rock</h4>
+            <div class="card-body">
+                <p class = "card-text">It's a good, solid choice.</p>
+                <button class="btn btn-success choice" id="rock">
+                    <i class="fas fa-hand-rock"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card" id="select">
+            <h4 class="card-title">Paper</h4>
+            <div class="card-body">
+                <p class = "card-text">Cover your bases.</p>
+                <button class="btn btn-success choice" id="paper">
+                    <i class="fas fa-hand-paper"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card" id="select">
+            <h4 class="card-title">Scissors</h4>
+            <div class="card-body">
+                <p class = "card-text">Let's cut to the chase.</p>
+                <button class="btn btn-success choice" id="scissors">
+                    <i class="fas fa-hand-scissors"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron" id="your-choice">
+        <h1 class="display-3" id="choice-symbol">?</h2>
+    </div>
+
+    <div class="jumbotron" id="their-choice">
+        <h1 class="display-3" id="their-choice-symbol">?</h1>
+    </div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+.card {
+    width: 27%;
+    text-align: center;
+    float: left;
+    margin: 30px;
+    padding: 30px;
+}
+
+.btn-success {
+    font-size: 40px;
+    padding: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    clear: both;
+}
+
+#username {
+    text-align: center;
+    padding: 20px;
+}
+
+.btn-warning {
+    text-align: center;
+}
